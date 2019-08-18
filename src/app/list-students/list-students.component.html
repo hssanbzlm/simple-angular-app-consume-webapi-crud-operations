@@ -1,0 +1,43 @@
+
+
+
+
+
+
+
+
+    <table class="table table-hover" > 
+
+        <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">First Name</th>
+            </tr>
+            </thead>
+   <tbody>
+   <Tr *ngFor="let student of Students  "> 
+       <Td>
+     {{student.Id}} 
+     </Td>
+     <td > {{student.Nom}} </td>  
+     <td> {{student.Prenom}}  </td> 
+     <td>      <button (click)="onDelete(student.Id)" type="button" class="btn btn-danger">Delete</button>
+     </td>  
+     <td>      <button (click)="onUpdateNavigate('modifier',student.Id)" type="button" class="btn btn-success"> Update </button>
+     </td> 
+
+
+
+
+</Tr> 
+</tbody>
+</table>
+<button (click)="onAddNavigate('add')" class="btn btn-primary" > Add new Student </button>
+   
+
+    
+
+
+
+

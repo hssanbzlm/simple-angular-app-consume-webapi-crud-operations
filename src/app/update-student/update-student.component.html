@@ -1,0 +1,78 @@
+<body>
+   <br>
+<div *ngIf="s" > 
+   <form [formGroup]="formmodif" (ngSubmit)="onUpdate()" >
+    
+  <div > 
+   
+    Last Name <input formControlName="nom" [(ngModel)]="s.Nom" name="nom" placeholder="Last Name " > 
+
+    <div *ngIf=" submitted && formmodif.get('nom').errors" >
+       <div *ngIf="formmodif.get('nom').errors.required" > 
+            <div class="alert alert-danger" role="alert" style="width:20%;margin:auto" >
+                  Last Name is required 
+                </div> 
+                <br>
+
+       </div> 
+
+       <div *ngIf="formmodif.get('nom').errors.pattern" > 
+            <div class="alert alert-danger" role="alert" style="width:20%;margin:auto" >
+                  Last Name must contains only letters 
+                </div> 
+                <br>
+
+       </div>
+
+    </div>
+ 
+</div>  
+   
+   <div>
+      First Name <input formControlName="prenom" [(ngModel)]="s.Prenom" name="prenom" placeholder="First Name" >
+      
+      <div *ngIf="submitted && formmodif.get('prenom').errors " >
+         <div *ngIf="formmodif.get('prenom').errors.required" >
+               <div class="alert alert-danger" role="alert" style="width:20%;margin:auto" >
+                     First Name is required 
+                   </div> 
+                   <br>
+
+
+         </div> 
+
+         <div *ngIf="formmodif.get('prenom').errors.pattern" > 
+
+               <div class="alert alert-danger" role="alert" style="width:20%;margin:auto" >
+                     First Name must contains only letters 
+                   </div> 
+                   <br>
+
+         </div>
+
+      </div>
+
+
+
+   </div> 
+  <br>
+
+   <button type="submit" class="btn btn-info" style="margin:5px;" >Modifier</button>
+   <button (click)="Goback()" class="btn btn-secondary" style="margin:5px;" > 
+         Go back
+       </button> 
+
+
+</form>
+
+</div>  
+
+     
+
+
+
+
+
+
+
+</body>

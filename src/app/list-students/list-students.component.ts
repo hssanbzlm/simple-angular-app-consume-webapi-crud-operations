@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ErrorHandler } from '@angular/core';
 import {StudentsService} from '../students.service';
 import  {Student} from '../student';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ export class ListStudentsComponent implements OnInit {
    
   Students:Student[];
   s:Student;
+  msg:string;
   constructor(private service:StudentsService,private router:Router) { } 
 
   ngOnInit() { 
@@ -25,7 +26,8 @@ export class ListStudentsComponent implements OnInit {
     return this.service.GetAllStudent().subscribe(
       data=>{this.Students=data;
 
-    })
+    }, 
+    error=>{this.msg=error.message;})
 
   }  
 
